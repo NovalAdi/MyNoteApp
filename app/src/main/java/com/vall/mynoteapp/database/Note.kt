@@ -14,11 +14,11 @@ data class Note(
     val id: Int = 0,
 
     @ColumnInfo(name = "title")
-    val title: String? = null,
+    var title: String? = null,
 
     @ColumnInfo(name = "desctiption")
-    val description: String? = null,
+    var description: String? = null,
 
     @ColumnInfo(name = "date")
-    val date: String? = null
+    var date: String? = null
 ) : Parcelable
