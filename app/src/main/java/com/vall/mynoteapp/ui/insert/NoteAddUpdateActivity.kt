@@ -1,6 +1,8 @@
 package com.vall.mynoteapp.ui.insert
 
 import android.os.Bundle
+import android.view.Menu
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.vall.mynoteapp.R
@@ -27,7 +29,7 @@ class NoteAddUpdateActivity : AppCompatActivity() {
         binding = ActivityNoteAddUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        noteAddUpdateViewModel = optainViewModel(this@NoteAddUpdateActivity)
+        noteAddUpdateViewModel = obtainViewModel(this@NoteAddUpdateActivity)
 
         binding.btnSubmit.setOnClickListener {
             val title = binding.edtTitle.text.toString().trim()
@@ -85,11 +87,17 @@ class NoteAddUpdateActivity : AppCompatActivity() {
         binding.btnSubmit.text = btnTitle
     }
 
-    private fun showToast(massage: String) {
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+////        if (isEdit) {
+////            menuInflater.inflate(R.menu.menu_form,menu)
+////        }
+//    }
 
+    private fun showToast(massage: String) {
+        Toast.makeText(this, massage, Toast.LENGTH_SHORT).show()
     }
 
-    private fun optainViewModel(noteAddUpdateActivity: NoteAddUpdateActivity): NoteAddUpdateViewModel {
+    private fun obtainViewModel(noteAddUpdateActivity: NoteAddUpdateActivity): NoteAddUpdateViewModel {
         val factory = ViewModelFactory.getInstance(noteAddUpdateActivity.application)
         return ViewModelProvider(noteAddUpdateActivity, factory)[NoteAddUpdateViewModel::class.java]
     }
