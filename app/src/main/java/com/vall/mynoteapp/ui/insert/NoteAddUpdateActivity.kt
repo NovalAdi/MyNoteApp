@@ -87,11 +87,12 @@ class NoteAddUpdateActivity : AppCompatActivity() {
         binding.btnSubmit.text = btnTitle
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-////        if (isEdit) {
-////            menuInflater.inflate(R.menu.menu_form,menu)
-////        }
-//    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        if (isEdit) {
+            menuInflater.inflate(R.menu.menu_form,menu)
+        }
+        return super.onCreateOptionsMenu(menu)
+    }
 
     private fun showToast(massage: String) {
         Toast.makeText(this, massage, Toast.LENGTH_SHORT).show()
